@@ -1,0 +1,38 @@
+{
+  "name": "agora",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node node_modules/react-native/local-cli/cli.js start",
+    "test": "jest"
+  },
+  "dependencies": {
+    "react": "16.0.0",
+    "react-native": "0.50.3"
+  },
+  "devDependencies": {
+    "babel-jest": "21.2.0",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-react-native": "4.0.0",
+    "detox": "^5.10.0",
+    "jest": "21.2.1",
+    "mocha": "^4.0.1",
+    "react-test-renderer": "16.0.0"
+  },
+  "jest": {
+    "preset": "react-native",
+    "coverageDirectory": "./coverage/",
+    "collectCoverage": true,
+    "testPathIgnorePatterns": ["<rootDir>/e2e/", "<rootDir>/node_modules/"]
+  },
+  "detox": {
+    "configurations": {
+      "ios.sim.debug": {
+        "binaryPath": "ios/build/Build/Products/Debug-iphonesimulator/agora.app",
+        "build": "xcodebuild -project ios/agora.xcodeproj -scheme agora -configuration Debug -sdk iphonesimulator -derivedDataPath ios/build",
+        "type": "ios.simulator",
+        "name": "iPhone 7"
+      }
+    }
+  }
+}
